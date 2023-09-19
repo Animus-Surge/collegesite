@@ -1,0 +1,97 @@
+:root {
+  /*https://coolors.co/f06543-e8e9eb-e0dfd5-313638-f09d51 coolors.co pallete*/
+  --color-primary: #f06543; /*Header, heading*/
+  --color-secondary: #e8e9eb; /*Light on dark text, header text color*/
+  --color-other1: #e0dfd5;
+  --color-other2: #313638; /*Text, footer*/
+  --color-other3: #f09d51; /*Link hover, navbar select*/
+}
+
+html, body, h1, h2, h3, h4, h5, h6, p, a {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+p, a {
+  font-size: 14pt;
+  color: var(--color-other2);
+}
+
+html {
+  height: 100vh;
+  max-width: 100vw;
+  background-color: var(--color-other1);
+}
+
+body {
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-other3);
+}
+a:visited {
+  color: var(--color-other3);
+}
+a:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+/*Navbar*/
+
+div.navbar ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: fit-content;
+  background-color: var(--color-other2);
+  color: var(--color-secondary);
+}
+
+li a.navelem {
+  float: left;
+  color: var(--color-secondary);
+  display: block;
+  padding: 12px;
+
+  transition-property: color, background-color;
+  transition-duration: 100ms;
+}
+li a.navelem.active {
+  background-color: var(--color-other3);
+  color: var(--color-other2);
+}
+li a.navelem:hover {
+  text-decoration: none;
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+}
+
+/*Footer*/
+div.footer {
+  position: absolute;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 90vw;
+  bottom: 0;
+  background-color: var(--color-other2);
+  color: var(--color-secondary);
+}
+
+div.footersection {
+  display: flex;
+  flex-direction: column;
+}
+
+p.grayed {
+  color: #ccc;
+}
