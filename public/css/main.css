@@ -45,13 +45,17 @@ a:hover {
 div.navbar ul {
   margin: 0;
   padding: 0;
+
   list-style-type: none;
+
   position: fixed;
   top: 0;
   width: 100vw;
   height: fit-content;
+  
   background-color: var(--color-other2);
   color: var(--color-secondary);
+  box-shadow: 0 0 5px 10px #0002;
 }
 
 li a.navelem {
@@ -73,15 +77,28 @@ li a.navelem:hover {
   color: var(--color-secondary);
 }
 
+/*Content*/
+div.content {
+  margin-top: 45px;
+}
+div.heading {
+  background-color: var(--color-primary);
+  color: var(--color-other1);
+  padding: 150px;
+  text-align: center;
+}
+
 /*Footer*/
 div.footer {
-  position: absolute;
+  position: fixed;
+  padding: 10px;
 
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 30px;
 
-  width: 90vw;
+  width: 100vw;
   bottom: 0;
   background-color: var(--color-other2);
   color: var(--color-secondary);
