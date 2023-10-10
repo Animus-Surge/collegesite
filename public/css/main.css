@@ -52,7 +52,7 @@ div.navbar ul {
   top: 0;
   width: 100vw;
   height: fit-content;
-  
+
   background-color: var(--color-other2);
   color: var(--color-secondary);
   box-shadow: 0 0 5px 10px #0002;
@@ -80,12 +80,20 @@ li a.navelem:hover {
 /*Content*/
 div.content {
   margin-top: 45px;
+  margin-bottom: 200px;
 }
 div.heading {
   background-color: var(--color-primary);
   color: var(--color-other1);
   padding: 150px;
   text-align: center;
+}
+div.small {
+  padding: 75px;
+}
+
+div.body {
+  margin: 3rem 30rem;
 }
 
 /*Footer*/
@@ -102,6 +110,7 @@ div.footer {
   bottom: 0;
   background-color: var(--color-other2);
   color: var(--color-secondary);
+  box-shadow: 0 0 5px 10px #0002;
 }
 
 div.footersection {
@@ -111,4 +120,13 @@ div.footersection {
 
 p.grayed {
   color: #ccc;
+}
+
+/*Main content*/
+h3.section-divider {
+  margin: 2rem 0;
+  padding: 0;
+  text-align: center;
+  font-size: 2rem;
+  color: var(--color-primary);
 }
