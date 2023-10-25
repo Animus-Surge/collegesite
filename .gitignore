@@ -1,2 +1,4 @@
 *.log
 /.vscode
+# Don't include the virtual environment
+/env
