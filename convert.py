@@ -1,36 +1,53 @@
 #!/usr/bin/env python3
 # A script to turn a markdown file into an HTML page. CSS is located in main.css, the title should be whatever the first header is.
 # Each page is made using the contents of template.html, the field {{content}} is replaced with the contents of the markdown file
-# rendered as HTML. The field {{title}} is replaced with the title of the page.
+# rendered as HTML. The field {{title}} is replaced with the title of the page. css is included in the template, same with javascript.
+# The script must search through the /public directory for markdown files, and then create a new HTML file for each markdown file in the
+# same directory.
 
+import os
 import markdown
-import sys
 
+# Get the current working directory
+cwd = os.getcwd()
 
-# Check if the user has provided a file to convert
-if len(sys.argv) < 2:
-    print("Usage: ./md2html.py <markdown file>")
-    exit()
+# Get the path to the public directory
+public = os.path.join(cwd, "public")
 
-print("Converting " + sys.argv[1] + " to HTML")
+# Get the path to the template file
+template = os.path.join(cwd, "template.html")
 
-# Read the markdown file
-with open(sys.argv[1], "r") as f:
-    md = f.read()
+# Now search public for all markdown files
+for root, dirs, files in os.walk(public):
+    for file in files:
+        # If the file is a markdown file
+        if file.endswith(".md"):
+            # Get the path to the markdown file
+            md = os.path.join(root, file)
 
-# Convert the markdown to HTML
-html = markdown.markdown(md)
+            # Get the path to the new HTML file
+            html = md.replace(".md", ".html")
 
-# Read the template file
-with open("template.html", "r") as f:
-    template = f.read()
+            # Open the markdown file
+            with open(md, "r") as f:
+                # Read the contents of the markdown file
+                contents = f.read()
 
-# Replace the fields in the template with the HTML and title
-template = template.replace("{{content}}", html)
-template = template.replace("{{title}}", md.split("\n")[0][2:])
+                # Convert the markdown to HTML
+                html_contents = markdown.markdown(contents)
 
-# Write the HTML to a file
-with open(sys.argv[1].replace(".md", ".html"), "w") as f:
-    f.write(template)
+                # Open the template file
+                with open(template, "r") as t:
+                    # Read the contents of the template file
+                    template_contents = t.read()
 
-print("Done!")
+                    # Replace the {{content}} field with the HTML contents
+                    template_contents = template_contents.replace("{{content}}", html_contents)
+
+                    # Replace the {{title}} field with the title of the page
+                    template_contents = template_contents.replace("{{title}}", html_contents.split("<h1>")[1].split("</h1>")[0])
+
+                    # Open the new HTML file
+                    with open(html, "w") as h:
+                        # Write the contents of the template file to the new HTML file
+                        h.write(template_contents)
