@@ -19,9 +19,6 @@ jobs:
       run:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-#    - name: Convert markdown to HTML
-#      run: # Conversion script currently UNFINISHED
-#        python convert.py
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
       with:
