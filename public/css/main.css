@@ -13,7 +13,11 @@ html, body, h1, h2, h3, h4, h5, h6, p, a {
   font-family: sans-serif;
 }
 
-p, a {
+sup {
+  font-size: 10pt !important;
+}
+
+p {
   font-size: 14pt;
   color: var(--color-other2);
 }
@@ -44,7 +48,7 @@ a:hover {
 
 div.navbar ul {
   margin: 0;
-  padding: 0;
+  padding: 0 10px;
 
   list-style-type: none;
 
@@ -67,6 +71,11 @@ li a.navelem {
   transition-property: color, background-color;
   transition-duration: 100ms;
 }
+li a.navelem.back {
+  background-color: var(--color-other1);
+  color: var(--color-other2);
+  margin-right: 5px;
+}
 li a.navelem.active {
   background-color: var(--color-other3);
   color: var(--color-other2);
@@ -79,7 +88,7 @@ li a.navelem:hover {
 
 /*Content*/
 div.content {
-  margin-top: 45px;
+  margin-top: 42px;
   margin-bottom: 200px;
 }
 div.heading {
@@ -123,7 +132,7 @@ p.grayed {
 }
 
 /*Main content*/
-h3.section-divider {
+.section-divider {
   margin: 2rem 0;
   padding: 0;
   text-align: center;
