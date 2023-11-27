@@ -32,11 +32,8 @@ body {
   overflow-x: hidden;
 }
 
-a {
+a, a:visited {
   text-decoration: none;
-  color: var(--color-other3);
-}
-a:visited {
   color: var(--color-other3);
 }
 a:hover {
@@ -158,6 +155,7 @@ p.grayed {
   }
   div.footer {
     position: relative;
+
   }
   div.navbar {
     display: none;
