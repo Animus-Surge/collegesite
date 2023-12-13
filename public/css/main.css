@@ -88,6 +88,9 @@ li a.navelem:hover {
 div.content {
   margin-top: 42px;
   margin-bottom: 200px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 div.heading {
   background-color: var(--color-primary);
